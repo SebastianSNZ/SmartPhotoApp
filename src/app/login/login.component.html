@@ -1,0 +1,12 @@
+<div id="login-box" class="col-md-12">
+    <h3 class="text-center">Iniciar Sesión</h3>
+    <div class="form-group">
+        <label for="loginUsuario">Usuario:</label><br>
+        <input type="text" name="loginUsuario" id="loginUsuario" class="form-control" autocomplete="off" [(ngModel)]="userValue.username">
+    </div>
+    <div class="form-group">
+        <label for="loginPassword">Contraseña:</label><br>
+        <input type="password" name="loginPassword" id="loginPassword" class="form-control" [(ngModel)]="userValue.password">
+    </div>
+    <button class="btn btn-outline-secondary btn-block" (click)="loginNewUser()">Ingresar</button>
+</div>

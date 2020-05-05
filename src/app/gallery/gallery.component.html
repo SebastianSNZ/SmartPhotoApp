@@ -1,0 +1,11 @@
+<div class="row" style="margin-bottom: 30px; margin-top: 20px;">
+    <figure class="col-md-4 text-center" *ngFor="let image of imageArray">
+        <div class="thumbnail">
+            <input type="image" class="card-img-top" alt="Card image cap" (click)="viewPhoto(image.id)"
+            src="https://galleryappbucket.s3.amazonaws.com/{{image.path}}">
+        </div>
+        <div class="alert alert-light" style="font-size: 14px; color: #000000;">
+            <b>{{image.username}}</b>
+        </div>
+    </figure>
+</div>

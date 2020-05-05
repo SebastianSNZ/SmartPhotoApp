@@ -1,0 +1,16 @@
+<div id="login-box" class="col-md-12">
+    <h3 class="text-center">Registrarse</h3>
+    <div class="form-group">
+        <label for="signupUsuario">Usuario:</label><br>
+        <input type="text" name="signupUsuario" id="signupUsuario" class="form-control" autocomplete="off" [(ngModel)]="newUser.username">
+    </div>
+    <div class="form-group">
+        <label for="signupPassword1">Contraseña:</label><br>
+        <input type="password" name="signupPassword1" id="signupPassword1" class="form-control" [(ngModel)]="newUser.password">
+    </div>
+    <div class="form-group">
+        <label for="signupPassword2">Contraseña (de nuevo):</label><br>
+        <input type="password" name="signupPassword2" id="signupPassword2" class="form-control" [(ngModel)]="newUser.password2">
+    </div>
+    <button class="btn btn-outline-secondary btn-block" (click)="createNewUser()">Registrarse</button>
+</div>

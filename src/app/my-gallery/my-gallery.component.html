@@ -1,0 +1,21 @@
+<div class="row" style="margin-bottom: 15px; margin-top: 20px;">
+    <div class="col-md-6 offset-md-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-7 my-auto text-center">
+                        <input type="file" accept="image/*" name="imageUpload" id="imageUpload" style="display: none;" (change)="fileChange($event)" />
+                        <label for="imageUpload" class="btn btn-outline-secondary btn-block">Seleccionar</label>
+                        <button class="btn btn-outline-secondary btn-block" *ngIf="selectedFile != null" (click)="createNewPhoto()">
+                            Publicar
+                        </button>
+                        <h6 style="margin-bottom: 5px; margin-top: 5px;"><span class="badge badge-secondary">{{message}}</span></h6>
+                    </div>
+                    <div class="col-md-5">
+                        <img [src]="newPhoto.link">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
