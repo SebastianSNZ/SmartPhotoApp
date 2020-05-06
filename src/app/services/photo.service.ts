@@ -21,4 +21,16 @@ export class PhotoService {
   postPhoto(data: any) {
     return this.http.post(`${this.apiUri}/photo`, data);
   }
+
+  searchPhoto(value: string) {
+    return this.http.put(`${this.apiUri}/search`, { value: value });
+  }
+
+  getPhotosByUser(user: string) {
+    return this.http.put(`${this.apiUri}/user/photos`, { username: user });
+  }
+
+  searchPhotosByUser(value) {
+    return this.http.put(`${this.apiUri}/user/search`, value);
+  }
 }

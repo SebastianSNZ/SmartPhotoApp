@@ -14,9 +14,27 @@ export class GalleryComponent implements OnInit {
 
   imageArray: any = [];
 
+  searchElement: string = '';
+
   ngOnInit(): void {
+    this.getAllPhotos();
+  }
+
+  getAllPhotos() {
     this.photoService.getPhotos().subscribe(
-      (res: any) => this.imageArray = res.Items,
+      (res: any) => this.imageArray = res.Items.reverse(),
+      err => console.error(err)
+    )
+  }
+
+  searchPhoto() {
+    this.searchElement = this.searchElement.trim();
+    if (this.searchElement == '') {
+      this.getAllPhotos();
+      return;
+    }
+    this.photoService.searchPhoto(this.searchElement).subscribe(
+      (res: any) => this.imageArray = res.reverse(),
       err => console.error(err)
     )
   }
@@ -24,5 +42,8 @@ export class GalleryComponent implements OnInit {
   viewPhoto(value: string) {
     this.router.navigate([`/photo/${value}`]);
   }
+
+
+
 
 }

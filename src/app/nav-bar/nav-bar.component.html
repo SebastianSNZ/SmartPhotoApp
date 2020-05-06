@@ -1,35 +1,35 @@
 <ul class="nav nav-pills nav-fill" style="margin-top: 10px;">
     <li class="nav-item">
         <button class="btn btn-light btn-block">
-            <a class="nav-link" style="font-size: 18px; color: #000000" routerLink="/">
+            <a class="nav-link" style="font-size: 16px; color: #000000" routerLink="/">
                 Inicio
             </a>
         </button>
     </li>
     <li class="nav-item" *ngIf="activeSession">
         <button class="btn btn-light btn-block">
-            <a class="nav-link" style="font-size: 18px; color: #000000" routerLink="/myphotos">
+            <a class="nav-link" style="font-size: 16px; color: #000000" routerLink="/myphotos">
                 Fotos
             </a>
         </button>
     </li>
     <li class="nav-item">
         <button class="btn btn-light btn-block">
-            <a class="nav-link" style="font-size: 18px; color: #000000" routerLink="/">
-                Estadísticas
+            <a class="nav-link" style="font-size: 16px; color: #131010" routerLink="/info">
+                Información
             </a>
         </button>
     </li>
     <li class="nav-item" *ngIf="!activeSession">
         <button class="btn btn-light btn-block">
-            <a class="nav-link" style="font-size: 18px; color: #000000" routerLink="/login">
+            <a class="nav-link" style="font-size: 16px; color: #000000" routerLink="/login">
                 Ingresar
             </a>
         </button>
     </li>
     <li class="nav-item" *ngIf="activeSession">
         <button class="btn btn-light btn-block" (click)="getOut()">
-            <a class="nav-link"style="font-size: 18px; color: #000000">
+            <a class="nav-link"style="font-size: 16px; color: #000000">
                 Salir
             </a>
         </button>

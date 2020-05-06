@@ -1,4 +1,23 @@
-<div class="row" style="margin-bottom: 30px; margin-top: 20px;">
+<div class="row" style="margin-bottom: 30px; margin-top: 15px;">
+    <div class="col-md-4 col-12">
+        <h1>SmartPhoto</h1>
+    </div>
+    <div class="col-md-2 col-6 my-auto">
+        <button class="btn btn-outline-secondary btn-block" (click)="getAllPhotos()">
+            Restablecer
+        </button>
+    </div>
+    <div class="col-md-2 col-6 my-auto">
+        <button class="btn btn-outline-secondary btn-block" (click)="searchPhoto()">
+            Buscar
+        </button>
+    </div>
+    <div class="col-md-4 col-12 my-auto">
+        <input class="form-control" type="text" placeholder="Búsqueda" name="search" autocomplete="off"
+        [(ngModel)]="searchElement">
+    </div>
+</div>
+<div class="row" style="margin-bottom: 30px; margin-top: 10px;">
     <figure class="col-md-4 text-center" *ngFor="let image of imageArray">
         <div class="thumbnail">
             <input type="image" class="card-img-top" alt="Card image cap" (click)="viewPhoto(image.id)"

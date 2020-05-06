@@ -15,6 +15,10 @@ export class MyGalleryComponent implements OnInit {
     link: 'https://pngimage.net/wp-content/uploads/2018/06/no-image-available-icon-png-7.png'
   };
 
+  searchElement: string = '';
+
+  imageArray: any = [];
+
   message: string = '';
 
   selectedFile: File = null;
@@ -30,6 +34,7 @@ export class MyGalleryComponent implements OnInit {
       return;
     }
     this.user = JSON.parse(localStorage.getItem('userInfo'));
+    this.getAllPhotos();
   }
 
   fileChange(event) {
@@ -70,6 +75,7 @@ export class MyGalleryComponent implements OnInit {
         this.selectedFile = null;
         this.newPhoto.link = 'https://pngimage.net/wp-content/uploads/2018/06/no-image-available-icon-png-7.png';
         this.message = '';
+        this.getAllPhotos();
       },
       (err) => {
         console.error(err);
@@ -78,6 +84,29 @@ export class MyGalleryComponent implements OnInit {
         this.message = '';
       }
     );
+  }
+
+  getAllPhotos() {
+    this.photoService.getPhotosByUser(this.user.username).subscribe(
+      (res: any) => this.imageArray = res.Items.reverse(),
+      (err) => console.error(err)
+    );
+  }
+
+  searchPhotos() {
+    this.searchElement = this.searchElement.trim();
+    if (this.searchElement == '') return;
+    this.photoService.searchPhotosByUser({
+      username: this.user.username,
+      value: this.searchElement
+    }).subscribe(
+      (res: any) => this.imageArray = res.reverse(),
+      err => console.error(err)
+    )
+  }
+
+  viewPhoto(value: string) {
+    this.router.navigate([`/photo/${value}`]);
   }
 
 }

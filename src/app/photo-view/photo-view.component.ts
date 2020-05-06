@@ -25,7 +25,6 @@ export class PhotoViewComponent implements OnInit {
         if (res.Count == 0) this.router.navigate(['/']);
         else {
           this.photo = res.Items[0];
-          console.log(this.photo);
         }
       },
       err => console.error(err)

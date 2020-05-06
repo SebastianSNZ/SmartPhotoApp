@@ -15,6 +15,7 @@ import { GetInComponent } from './get-in/get-in.component';
 import { UserService } from './services/user.service';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MyGalleryComponent } from './my-gallery/my-gallery.component';
+import { InfoComponent } from './info/info.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { MyGalleryComponent } from './my-gallery/my-gallery.component';
     SignupComponent,
     GetInComponent,
     NavBarComponent,
-    MyGalleryComponent
+    MyGalleryComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,

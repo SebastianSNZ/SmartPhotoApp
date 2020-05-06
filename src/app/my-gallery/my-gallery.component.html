@@ -1,21 +1,61 @@
-<div class="row" style="margin-bottom: 15px; margin-top: 20px;">
-    <div class="col-md-6 offset-md-3">
+<div class="row" style="margin-bottom: 15px; margin-top: 10px;">
+    <div class="col">
         <div class="card">
             <div class="card-body">
-                <div class="row">
-                    <div class="col-md-7 my-auto text-center">
-                        <input type="file" accept="image/*" name="imageUpload" id="imageUpload" style="display: none;" (change)="fileChange($event)" />
-                        <label for="imageUpload" class="btn btn-outline-secondary btn-block">Seleccionar</label>
-                        <button class="btn btn-outline-secondary btn-block" *ngIf="selectedFile != null" (click)="createNewPhoto()">
-                            Publicar
-                        </button>
-                        <h6 style="margin-bottom: 5px; margin-top: 5px;"><span class="badge badge-secondary">{{message}}</span></h6>
-                    </div>
-                    <div class="col-md-5">
-                        <img [src]="newPhoto.link">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-md-5" style="margin-top: 10px;">
+                            <p class="h5">Fotos subidas por <span class="h5 font-weight-bold">{{user.username}}.</span>
+                            </p>
+                            <input style="margin-bottom: 10px;" class="form-control" type="text" placeholder="Búsqueda"
+                                name="search" autocomplete="off" [(ngModel)]="searchElement">
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="col">
+                                    <button class="btn btn-outline-secondary btn-block" (click)="getAllPhotos()">
+                                        Restablecer
+                                    </button>
+                                </div>
+                                <div class="col">
+                                    <button class="btn btn-outline-secondary btn-block" (click)="searchPhotos()">
+                                        Buscar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3" style="margin-top: 10px;">
+                            <p class="h5">Subir nueva foto.
+                            </p>
+                            <input type="file" accept="image/*" name="imageUpload" id="imageUpload"
+                                style="display: none;" (change)="fileChange($event)" />
+                            <label for="imageUpload" class="btn btn-outline-secondary btn-block">Seleccionar</label>
+                            <button class="btn btn-outline-secondary btn-block" *ngIf="selectedFile != null"
+                                (click)="createNewPhoto()">
+                                Publicar
+                            </button>
+                            <h6 style="margin-bottom: 5px; margin-top: 5px;"><span
+                                    class="badge badge-secondary">{{message}}</span></h6>
+
+                        </div>
+
+                        <div class="col-md-4 text-center">
+                            <img style="width: 185px; height: 100%; object-fit: cover;" [src]="newPhoto.link">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+
+
+<div class="row" style="margin-bottom: 30px; margin-top: px;">
+    <figure class="col-md-4 text-center" *ngFor="let image of imageArray">
+        <div class="thumbnail">
+            <input type="image" class="photo-thumbnail" alt="Card image cap" (click)="viewPhoto(image.id)"
+                src="https://galleryappbucket.s3.amazonaws.com/{{image.path}}">
+        </div>
+    </figure>
 </div>
